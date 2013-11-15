@@ -171,7 +171,7 @@ var SessionStore = function (options, cb) {
             });
 
             MongoStore.options = options;
-            MongoStore.client = mongoose.model('sessions', schema);
+            MongoStore.client = mongoose.model(options.collection, schema);
 
             for (var i in MongoStore) {
                 SessionStore.prototype[i] = MongoStore[i];
