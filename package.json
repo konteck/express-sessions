@@ -18,7 +18,7 @@
     "redis",
     "cookies"
   ],
-  "version": "1.0.5",
+  "version": "1.0.6",
   "dependencies": {
     "express": "2.x.x",
     "mongoose": "4.x.x",
