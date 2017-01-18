@@ -150,7 +150,8 @@ var SessionStore = function (options, cb) {
         db: options.db || 'test',
         collection: options.collection || 'sessions',
         instance: options.instance || null,
-        expire: options.expire || 86400
+        expire: options.expire || 86400,
+        uri: options.uri || 'mongodb://' + options.host + ':' + options.port + '/' + options.db
     };
 
     express.session.Store.call(this, options);
@@ -160,7 +161,7 @@ var SessionStore = function (options, cb) {
             if (options.instance) {
                 mongoose = options.instance;
             } else {
-                mongoose.connect('mongodb://' + options.host + ':' + options.port + '/' + options.db);
+                mongoose.connect(options.uri);
             }
 
             var schema = new mongoose.Schema({
